@@ -1,0 +1,13 @@
+{% extends "myapp/index.html" %}
+{% block content %}
+<title>{% block title %}{{ title }}{% endblock %}</title>
+<div class="content">
+    {% if qualification %}
+        <h1>{{ qualification.name }}</h1>
+        <p><strong>ID:</strong> {{ qualification.id }}</p>
+    {% else %}
+        <p>Квалификация не найдена</p>
+    {% endif %}
+    <a href="{% url 'dump-list' %}">Назад к списку</a>
+</div>
+{% endblock %}
