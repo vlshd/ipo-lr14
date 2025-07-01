@@ -15,6 +15,24 @@
         <a href="{% url 'about' %}" class="nav-item"><i class="fas fa-car"></i> Об авторе</a></br>
         <a href="{% url 'aboutShop' %}" class="nav-item"><i class="fas fa-car"></i> Об магазине</a></br>
         <a href="{% url 'dump-list' %}" class="nav-item"><i class="fas fa-car"></i> Список квалификаций</a></br>
+        <a href="{% url 'product_list' %}" class="nav-item"><i class="fas fa-car"></i> Каталог</a></br>
+        <a href="{% url 'cart_view' %}" class="nav-item"><i class="fas fa-car"></i> Корзина</a></br>
+        {% if user.is_authenticated %}
+       <div>{{ user.username }}</div> 
+       <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <a href="{% url 'login' %}" >
+           
+       
+        <button type="submit" class="dropdown-item">Выйти</button> </a>
+        </form>
+        {% else %}
+        <li>
+            <a href="{% url 'login' %}" >
+                <i> Войти</i>
+            </a>
+        </li>
+        {% endif %}
 
     </div>
     <main>
